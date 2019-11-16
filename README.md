@@ -1,5 +1,9 @@
-Play multiple videos in an HTML page.
+Play multiple videos in an HTML page using [Video JS](https://github.com/videojs/video.js).
 
+### Supported formats
+  - m3u8
+  - RTMP (with flash)
+  - MP4
 ### Setting up
 
 1. Download the repo or clone it: `git clone git@github.com:rparjun/video-tiles.git`
