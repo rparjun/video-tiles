@@ -28,15 +28,15 @@ $(document).ready(()=>{
         $("#players").append("\
           <div class='player'>\
             <video autoplay='true' muted='muted' id='"+player_id+"' class='video-js vjs-default-skin' controls preload='auto' width='448' height='252'></video>\
-            <input readonly type='text' value='"+link+"'>\
+            <span>"+ link.tags.join(', ') +"</span>\
           </div>\
         ");
 
         const player = videojs(player_id, {
           autoplay: true,
           sources:[{
-            src: link,
-            type: getType(link)
+            src: link.src,
+            type: getType(link.src)
           }]
         });
         players.push(player);
