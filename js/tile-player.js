@@ -25,10 +25,11 @@ $(document).ready(()=>{
       for(i=0;i < links.length; i++) {
         const player_id = `player_${i}`;
         const link = links[i];
+        const tags = link.tags.map((tag)=> "<div class='tag'>"+tag+"</div>").join("");
         $("#players").append("\
           <div class='player'>\
             <video autoplay='true' muted='muted' id='"+player_id+"' class='video-js vjs-default-skin' controls preload='auto' width='448' height='252'></video>\
-            <span>"+ link.tags.join(', ') +"</span>\
+            <div class='tags'>"+tags+"</div>\
           </div>\
         ");
 

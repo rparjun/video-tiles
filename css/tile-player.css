@@ -1,0 +1,36 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.root {
+  display: flex;
+  flex-wrap: wrap;
+}
+.player{
+  width: 448px;
+  height: 352px;
+  margin: 10px;
+}
+.player>input{
+  width: 95%;
+  border: none;
+  padding: 1px 2px;
+}
+.tags {
+  flex-flow: row wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag{
+  border: 1px solid rgb(170, 170, 170);
+  background-color: rgb(240, 240, 240);
+  color: #000;
+  border-radius: 4px;
+  padding: 1px 4px;
+  font-size: 14px;
+  word-break: break-all;
+
+}
+.tags>* {
+  margin: 5px;
+}
+
