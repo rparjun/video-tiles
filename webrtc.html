@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="/css/favicon.png">
+    <title>Amagi - WebRTC</title>
+
+    <script src="js/webrtc/adapter.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/webrtc/janus.js"></script>
+    <script src="js/webrtc/html5janus.js"></script>
+    <script src="js/webrtc/script.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="css/tile-player.css" rel="stylesheet">
+    <style>
+      .BlipJanus {
+        position: relative;
+        background: #333;
+      }
+      .BlipJanus .message {
+        position: absolute;
+        font-size: 14px;
+        top: calc(50% - 14px);
+        width: 100%;
+        text-align: center;
+      }
+      .BlipJanus .message.status {
+        color: #fff;
+      }
+      .BlipJanus .message.error {
+        color: red;
+      }
+      .BlipJanus > .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="players" class="root"></div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "links": [
+    {
+        "src": "http://10.0.5.241:6066/janus",
+        "stream_index": 1,
+        "tags": [
+           "local-janus"
+        ]
+    },
+    {
+        "src": "https://janus.conf.meetecho.com/janus",
+        "stream_index": 1,
+        "tags": [
+          "remote-janus"
+        ]
+    },
+    {
+      "src": "http://10.0.5.223:6066/janus",
+      "stream_index": 1,
+      "tags": [
+         "random-not-working-janus"
+      ]
+    },
+    {
+      "src": "http://10.0.5.241:6066/janus",
+      "stream_index": 1,
+      "tags": [
+         "local-janus"
+      ]
+  },
+  {
+      "src": "https://janus.conf.meetecho.com/janus",
+      "stream_index": 1,
+      "tags": [
+        "remote-janus"
+      ]
+  },
+  {
+    "src": "http://10.0.5.223:6066/janus",
+    "stream_index": 1,
+    "tags": [
+       "random-not-working-janus"
+    ]
+  }
+  ]
+}
