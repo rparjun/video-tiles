@@ -8,11 +8,11 @@ $(document).ready(()=>{
       const tags = link.tags.map((tag)=> "<div class='tag'>"+tag+"</div>").join("");
       $("#players").append("\
         <div class='player'>\
-          <div id='"+player_id+"' class='BlipJanus' style='width:448px; height:252px'></div>\
+          <div id='"+player_id+"' class='html5janus' style='width:448px; height:252px'></div>\
           <div class='tags'>"+tags+"</div>\
         </div>\
       ");
-      BlipJanus(links[i]["src"], player_id, links[i]["stream_index"], {
+      html5janus(links[i]["src"], player_id, links[i]["stream_index"], {
         debug: false,
         width: "448px",
         height: "252px",

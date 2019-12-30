@@ -1,0 +1,20 @@
+.html5janus {
+  position: relative;
+  background: #333;
+}
+.html5janus .message {
+  position: absolute;
+  font-size: 14px;
+  top: calc(50% - 14px);
+  width: 100%;
+  text-align: center;
+}
+.html5janus .message.status {
+  color: #fff;
+}
+.html5janus .message.error {
+  color: red;
+}
+.html5janus > .hide {
+  display: none;
+}
