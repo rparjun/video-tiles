@@ -13,7 +13,7 @@ $(document).ready(()=>{
         </div>\
       ");
       html5janus(links[i]["src"], player_id, links[i]["stream_index"], {
-        debug: false,
+        debug: true,
         width: "448px",
         height: "252px",
       });

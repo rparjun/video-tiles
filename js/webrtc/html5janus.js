@@ -6,7 +6,10 @@ function html5janus(janusUrl, playerId, stream_index, options) {
   let debug = options.debug || false;
   let width = options.width || $("#" + playerId).innerWidth();
   let height = options.height || $("#" + playerId).innerHeight();
-  $("#" + playerId).append("<div class='message status hide'></div>");
+  let loader = options.loader || true;
+  $("#" + playerId).append("<div id='loader' class='lds-ring hide'><div></div><div></div><div></div><div></div></div>");
+  $("#" + playerId).append("<div class='message status'></div>");
+  playerInfo(loader, playerId, "Initializing connection, please wait...");
   $("#" + playerId).append("<div class='message error hide'></div>");
   $("#" + playerId).append("<video class='hide' width='" + width + "' height='" + height + "' autoplay playsinline controls muted/>");
   // Initialize the library
@@ -39,8 +42,7 @@ function html5janus(janusUrl, playerId, stream_index, options) {
             },
             error: function(error) {
               Janus.error("html5janusAttachError : ", error);
-              $("#" + playerId + " > *").hide();
-              $("#" + playerId + " .error").html("Error while connecting to Janus server").show();
+              playerInfo(loader, playerId, "Error while connecting to Janus server", true);
             },
             onmessage: function(msg, jsep) {
               Janus.log("html5janusAttachOnMessage : ", playerId, msg, jsep);
@@ -48,13 +50,8 @@ function html5janus(janusUrl, playerId, stream_index, options) {
               if(result !== null && result !== undefined) {
                 if(result["status"] !== undefined && result["status"] !== null) {
                   var status = result["status"];
-                  if (status === 'preparing') {
-                    $("#" + playerId + " > *").hide();
-                    $("#" + playerId + " .status").html("Initializing connection, please wait...").show();
-                  }
                   if (status === 'starting') {
-                    $("#" + playerId + " > *").hide();
-                    $("#" + playerId + " .status").html("Connecting to Janus, please wait...").show();
+                    playerInfo(loader, playerId, "Connecting to Janus, please wait...");
                   }
                   else if(status === 'started') {
                     $("#" + playerId + " > *").hide();
@@ -89,8 +86,7 @@ function html5janus(janusUrl, playerId, stream_index, options) {
               Janus.attachMediaStream($("#" + playerId + " video").get(0), stream);
               var videoTracks = stream.getVideoTracks();
               if(videoTracks === null || videoTracks === undefined || videoTracks.length === 0) {
-                $("#" + playerId + " > *").hide();
-                $("#" + playerId + " .status").html("Waiting for video tracks...").show();
+                playerInfo(loader, playerId, "Waiting for video tracks...");
               } else {
                 $("#" + playerId + " > *").hide();
                 $("#" + playerId + " video").show();
@@ -100,8 +96,7 @@ function html5janus(janusUrl, playerId, stream_index, options) {
         },
         error: function(error) {
           Janus.error("html5janusJanusError : ", error);
-          $("#"+playerId+" > *").hide();
-          $("#"+playerId+" .error").html("Error while connecting to Janus server").show();
+          playerInfo(loader, playerId, "Error while connecting to Janus server", true);
         },
       });
     },
@@ -112,6 +107,18 @@ function html5janus(janusUrl, playerId, stream_index, options) {
       Janus.log("html5janusDestroyed")
     }
   });
+}
+
+function playerInfo(loader, playerId, message, isError = false) {
+  $("#" + playerId + " > *").hide();
+  if (isError) {
+    $("#" + playerId + " .error").html(message).show();
+    return
+  }
+  if (!loader)
+      $("#" + playerId + " .status").html(message).show();
+  else
+    $("#" + playerId + " #loader").show();
 }
 
 $(document).ready(()=>{
