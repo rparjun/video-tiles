@@ -137,7 +137,7 @@ function playerInfo(playerId, message, isError = false) {
     $("#" + playerId + " .error").html(message).show();
     return
   }
-  if (!html5janus[playerId].config.debug)
+  if (html5janus[playerId].config.debug)
       $("#" + playerId + " .status").html(message).show();
   else
     $("#" + playerId + " #loader").show();
