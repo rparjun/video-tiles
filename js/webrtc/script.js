@@ -9,13 +9,14 @@ $(document).ready(()=>{
       $("#players").append("\
         <div class='player'>\
           <div id='"+player_id+"' class='html5janus' style='width:448px; height:252px'></div>\
-          <div class='tags'>"+tags+"</div>\
+          <div class='tags'>"+tags+"<div class='tag' id='"+player_id+"-bitrate'></div></div>\
         </div>\
       ");
       html5janus(links[i]["src"], player_id, links[i]["stream_index"], {
         debug: true,
         width: "448px",
         height: "252px",
+        bitrate: "bitrate"
       });
     }
 
