@@ -1,21 +1,21 @@
-.html5janus {
+.webrtcStreaming {
   position: relative;
   background: #333;
 }
-.html5janus .message {
+.webrtcStreaming .message {
   position: absolute;
   font-size: 14px;
   top: calc(50% - 14px);
   width: 100%;
   text-align: center;
 }
-.html5janus .message.status {
+.webrtcStreaming .message.status {
   color: #fff;
 }
-.html5janus .message.error {
+.webrtcStreaming .message.error {
   color: red;
 }
-.html5janus > .hide {
+.webrtcStreaming > .hide {
   display: none;
 }
 .lds-ring {

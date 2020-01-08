@@ -12,7 +12,8 @@
         "stream_index": 1,
         "tags": [
           "remote-janus"
-        ]
+        ],
+        "hotspot_api": "http://10.0.5.3:8501/api"
     },
     {
       "src": "http://10.0.5.223:6066/janus",
